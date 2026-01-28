@@ -271,7 +271,7 @@
         const App = () => {
             const [isUnlocked, setIsUnlocked] = useState(false);
             
-            const targetDate = new Date("2026-02-05T20:00:00").getTime(); 
+            const targetDate = new Date("2026-01-05T20:00:00").getTime(); 
 
             useEffect(() => {
                 if(window.lucide) {
@@ -335,8 +335,8 @@
                                 <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-black rounded-full"></div>
                             </div>
                             <div className="flex flex-col">
-                                <span className="text-sm font-bold text-white">عائشة (بطلتي)</span>
-                                <span className="text-[10px] text-pink-400">نشط الآن في قلبي</span>
+                                <span className="text-sm font-bold text-white">v8v7__</span>
+                                <span className="text-[10px] text-pink-400">بطلتي وحبيبة قلبي</span>
                             </div>
                         </div>
                         <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center">
@@ -363,11 +363,11 @@
                                         👑
                                     </motion.div>
                                 </motion.div>
-                                <p className="text-xl text-white font-medium mt-2">إلى جميلتي <span className="text-pink-500 font-bold">عائشة</span></p>
+                                <p className="text-xl text-white font-medium mt-2">إلى بطلتي <span className="text-pink-500 font-bold">عائشة</span></p>
                                 <div className="mt-4 inline-flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full backdrop-blur-sm text-xs text-gray-300">
-                                    <span>🗓️ 5 فبراير 2026</span>
                                     <span className="w-1 h-1 bg-gray-500 rounded-full"></span>
-                                    <span>يوم البطلة</span>
+                                    <span>🗓️ 5 فبراير 2026</span>
+                                    <span></span>
                                 </div>
                             </div>
                         </Section>
@@ -400,6 +400,17 @@
                                         </p>
                                     </div>
                                 </div>
+                             <div className="flex gap-4 mb-8">
+                                    <div className="relative z-10 flex-shrink-0 w-12 h-12 rounded-full bg-gray-900 border border-blue-500 flex items-center justify-center shadow-glow">
+                                        <span className="text-lg"><i data-lucide="image" size={20} className="text-white"></i></span>
+                                    </div>
+                                    <div className="glass-card flex-1 p-4 rounded-2xl rounded-tr-none">
+                                        <h3 className="font-bold text-blue-400 text-sm mb-1">الانستقرام</h3>
+                                        <p className="text-gray-300 text-xs leading-relaxed">
+                                            وبعد ما حصلت حسابك صرت مهووس بالاستوريات ومنشوراتك وكم كنت اضبح وقت تنزلي منشور فية يدش او تسوي تعليق، كم كنت اشتي اضربش وقتها 😂😔
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                         </Section>
 
@@ -420,35 +431,30 @@
                                 </div>
                                 
                                 <div className="p-4 bg-black/20 h-72 overflow-y-auto no-scrollbar flex flex-col-reverse">
-                                    <div className="text-center text-[10px] text-gray-500 mb-4 mt-2">Today 11:55 PM</div>
-                                    
-                                    <ChatBubble sender="her" time="11:55 PM" text="أحبك يا بطلي" />
-                                    <ChatBubble sender="me" time="11:55 PM" text="احبك يا بطلتي" />
+                                    <div className="text-center text-[10px] text-gray-500 mb-4 mt-2">11:55 PM</div>
+                                    <ChatBubble sender="her" time="11:55 PM" text="حبيبي🥺؟!" />
+                                    <ChatBubble sender="me" time="11:55 PM" text="حبيبتي 🫣" />
                                     <div className="text-center text-[10px] text-gray-500 my-4">بداية الحب</div>
-                                    <ChatBubble sender="her" time="11:55 PM" text="يوه والحش الي كان يوقع عليا" />
-                                    <ChatBubble sender="me" time="11:55 PM" text="كنتي نثرات والله😂😂😂😂😂" />
-                                    <ChatBubble sender="her" time="11:55 PM" text="تغطيت بثنتين بطانيات وعادنا مستحيه😂😭" />
+                                    <ChatBubble sender="her" time="11:55 PM" text="اموتن عليك." />
+                                    <ChatBubble sender="me" time="11:55 PM" text="ايوه، وانتي" />
+                                    <ChatBubble sender="her" time="11:55 PM" text="تحبني😔✨!" />
+                                    <ChatBubble sender="her" time="11:55 PM" text="يعني يعني مثلاً مثلاً نصير من اصحاب الى احباب👈🏻👉🏻💗" />
                                     <ChatBubble sender="me" time="11:54 PM" isSpecial={true} text={
-                                        <span className="flex items-center gap-2 font-bold">
-                                            مره علقتي على فستان شفاف وشبك وقصير 
-
-                                            يعني قصير قصير حق غرف النوم 😂😂
-
-                                            وانتي كاتبه تعليق (عاد به اقصر) 
-
-                                            الكلب جولان رد وقال نصتاط به سمك 😭😭
-
-                                            وصادف ايش 
-                                            الفستان معروض في المحل اللي جنب فلافل فلسطين
-                                            <i data-lucide="fish" size={16} className="text-blue-200"></i>
+                                        <span className="flex items-center gap-2 font-bold">والله ان قدو الصدق👈🏻👉🏻
                                         </span>
                                     } />
-                                    <ChatBubble sender="me" time="10:33 PM" text="ايوه بطله 👍" />
-                                    <ChatBubble sender="her" time="10:32 PM" text="ولا عيوني" />
-                                    <ChatBubble sender="her" time="10:32 PM" text="والتعليقات عتبطلهن" />
-                                    <ChatBubble sender="her" time="10:32 PM" text="مانزلش يدي" />
-                                    <ChatBubble sender="me" time="10:30 PM" text="بالذات انتي يعني اشوفش تتخيجفي اشتي اصيح فوقش عشان لما تنزلي ايديش وعيونش  وتفعلي تعليقات ساع البقره 
-بس ما نفعل امري لله" />
+                                    <ChatBubble sender="me" time="10:33 PM" text="بس بصدق يا نققة السد" />
+                                    <ChatBubble sender="her" time="10:33 PM" text="شمك لبن يا ثجافي😔✨" />
+                                    <ChatBubble sender="me" time="10:33 PM" text="شمي بلوتوث" />
+                                    <ChatBubble sender="me" time="10:33 PM" text="نوكيا هع عه عه عه" />
+                                    <ChatBubble sender="her" time="10:33 PM" text="سامج سامسنج" />
+                                    <ChatBubble sender="me" time="10:33 PM" text="مدري احس نفسي اهبل وسامج" />
+                                    <ChatBubble sender="me" time="10:33 PM" text="في البداية كان باين ضحك وفله بس الان والله بديت اصدق 🙂 حتى اني بديت للصراحه اتعلق بجد" />
+                                    <ChatBubble sender="her" time="10:32 PM" text="ايش به" />
+                                    <ChatBubble sender="her" time="10:32 PM" text="الان بكلمك بجد لانوه الموضوع اختبص معي" />
+                                    <ChatBubble sender="her" time="10:32 PM" text="معك" />
+                                    <ChatBubble sender="me" time="10:30 PM" text="تعي تعي لهون" />
+                                    <ChatBubble sender="me" time="10:30 PM" text="ي عايشه" />
                                 </div>
 
                                 <div className="p-3 bg-black/40 flex items-center gap-3">
@@ -519,7 +525,7 @@
                                                 25-22
                                             </motion.div>
                                         </div>
-                                        <div className="text-[10px] text-gray-400 mt-3">العمر مجرد رقم</div>
+                                        <div className="text-[10px] text-gray-400 mt-3"> العمر مجرد رقم، في الاخير انا اطول منك</div>
                                     </div>
                                     <div className="text-center z-10">
                                         <div className="text-2xl">🧕🏻</div>
