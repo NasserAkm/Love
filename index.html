@@ -124,7 +124,50 @@
     <script type="text/babel">
         const { useState, useEffect, useRef } = React;
         const { motion, AnimatePresence } = window.Motion;
-        
+        const MusicPlayer = () => {
+            const [playing, setPlaying] = useState(false);
+            const audioRef = useRef(null);
+
+            const togglePlay = () => {
+                if (playing) {
+                    audioRef.current.pause();
+                } else {
+                    audioRef.current.play();
+                }
+                setPlaying(!playing);
+            };
+
+            useEffect(() => {
+                if(window.lucide) {
+                    window.lucide.createIcons();
+                }
+            }, [playing]);
+
+            return (
+                <div className="fixed bottom-10 right-4 z-[60] flex items-center gap-2">
+                    <audio 
+                        ref={audioRef} 
+                        loop 
+                        src="hbd.mp3" 
+                    />
+                    <button 
+                        onClick={togglePlay}
+                        className={`w-10 h-10 rounded-full flex items-center justify-center border border-white/20 shadow-glow transition-all duration-500 ${playing ? 'bg-gradient-to-tr from-pink-500 to-purple-600 border-transparent ' : 'bg-black/40 text-gray-300 backdrop-blur-md'}`}
+                    >
+                        {playing ? <i data-lucide="pause" size={16} className="text-white fill-white" /> : <i data-lucide="music" size={18} />}
+                    </button>
+                    
+                    {playing && (
+                        <div className="flex gap-1 items-end h-4">
+                            <div className="w-1 bg-pink-500 rounded-full equalizer-bar"></div>
+                            <div className="w-1 bg-purple-500 rounded-full equalizer-bar"></div>
+                            <div className="w-1 bg-blue-500 rounded-full equalizer-bar"></div>
+                        </div>
+                    )}
+                </div>
+            );
+        };
+   
         const Background = () => (
             <>
                 <div className="animated-bg"></div>
@@ -271,7 +314,7 @@
         const App = () => {
             const [isUnlocked, setIsUnlocked] = useState(false);
             
-            const targetDate = new Date("2026-02-05T20:00:00").getTime(); 
+            const targetDate = new Date("2026-01-05T20:00:00").getTime(); 
 
             useEffect(() => {
                 if(window.lucide) {
@@ -319,6 +362,8 @@
             return (
                 <div className="relative min-h-screen pb-24 ">
                     <Background />
+                    <MusicPlayer />
+
                     
                     <motion.header 
                         initial={{ y: -100 }}
@@ -387,8 +432,6 @@
                                         </p>
                                     </div>
                                 </div>
-
-                                {/* Event 2 */}
                                 <div className="flex gap-4 mb-8">
                                     <div className="relative z-10 flex-shrink-0 w-12 h-12 rounded-full bg-gray-900 border border-blue-500 flex items-center justify-center shadow-glow">
                                         <span className="text-lg">🚀</span>
@@ -407,7 +450,7 @@
                                     <div className="glass-card flex-1 p-4 rounded-2xl rounded-tr-none">
                                         <h3 className="font-bold text-blue-400 text-sm mb-1">الانستقرام</h3>
                                         <p className="text-gray-300 text-xs leading-relaxed">
-                                            وبعد ما حصلت حسابك صرت مهووس بالاستوريات ومنشوراتك وكم كنت اضبح وقت تنزلي منشور فية يدش او تسوي تعليق، كم كنت اشتي اضربش وقتها 😂😔
+                                            وبعد ما حصلت حسابك صرت مهووس بالاستوريات ومنشوراتك وكم كنت اضبح وقت تنزلي منشور فية يدش او تسوي تعليق، كم كنت اشتي اضربش وقتها 😂😔 وكم كنت اغار عليش من انهم يشوفوكي الناس وهذا الشعور جاء من قبل مايكون بيني وبينك اي علاقة.
                                         </p>
                                     </div>
                                 </div>
@@ -430,31 +473,31 @@
                                     <i data-lucide="video" size={20} className="text-white/80"></i>
                                 </div>
                                 
-                                <div className="p-4 bg-black/20 h-72 overflow-y-auto no-scrollbar flex flex-col-reverse">
+                                <div className="p-4 bg-black/20 h-72 overflow-y-auto  flex flex-col">
                                     <div className="text-center text-[10px] text-gray-500 mb-4 mt-2">11:55 PM</div>
-                                    <ChatBubble sender="her" time="11:55 PM" text="حبيبي🥺؟!" />
-                                    <ChatBubble sender="me" time="11:55 PM" text="حبيبتي 🫣" />
-                                    <div className="text-center text-[10px] text-gray-500 my-4">بداية الحب</div>
-                                    <ChatBubble sender="her" time="11:55 PM" text="اموتن عليك." />
-                                    <ChatBubble sender="me" time="11:55 PM" text="ايوه، وانتي" />
-                                    <ChatBubble sender="her" time="11:55 PM" text="تحبني😔✨!" />
-                                    <ChatBubble sender="her" time="11:55 PM" text="يعني يعني مثلاً مثلاً نصير من اصحاب الى احباب👈🏻👉🏻💗" />
+                                    <ChatBubble sender="me" time="10:30 PM" text="ي عايشه" />
+                                    <ChatBubble sender="me" time="10:30 PM" text="تعي تعي لهون" />
+                                    <ChatBubble sender="her" time="10:32 PM" text="معك" />
+                                    <ChatBubble sender="me" time="10:32 PM" text="الان بكلمك بجد لانوه الموضوع اختبص معي" />
+                                    <ChatBubble sender="her" time="10:32 PM" text="ايش به" />
+                                    <ChatBubble sender="me" time="10:33 PM" text="في البداية كان باين ضحك وفله بس الان والله بديت اصدق 🙂 حتى اني بديت للصراحه اتعلق بجد" />
+                                    <ChatBubble sender="me" time="10:33 PM" text="مدري احس نفسي اهبل وسامج" />
+                                    <ChatBubble sender="her" time="10:33 PM" text="سامج سامسنج" />
+                                    <ChatBubble sender="me" time="10:33 PM" text="نوكيا هع عه عه عه" />
+                                    <ChatBubble sender="me" time="10:33 PM" text="شمي بلوتوث" />
+                                    <ChatBubble sender="her" time="10:33 PM" text="شمك لبن يا ثجافي😔✨" />
+                                    <ChatBubble sender="me" time="10:33 PM" text="بس بصدق يا نققة السد" />
                                     <ChatBubble sender="me" time="11:54 PM" isSpecial={true} text={
                                         <span className="flex items-center gap-2 font-bold">والله ان قدو الصدق👈🏻👉🏻
-                                        </span>
-                                    } />
-                                    <ChatBubble sender="me" time="10:33 PM" text="بس بصدق يا نققة السد" />
-                                    <ChatBubble sender="her" time="10:33 PM" text="شمك لبن يا ثجافي😔✨" />
-                                    <ChatBubble sender="me" time="10:33 PM" text="شمي بلوتوث" />
-                                    <ChatBubble sender="me" time="10:33 PM" text="نوكيا هع عه عه عه" />
-                                    <ChatBubble sender="her" time="10:33 PM" text="سامج سامسنج" />
-                                    <ChatBubble sender="me" time="10:33 PM" text="مدري احس نفسي اهبل وسامج" />
-                                    <ChatBubble sender="me" time="10:33 PM" text="في البداية كان باين ضحك وفله بس الان والله بديت اصدق 🙂 حتى اني بديت للصراحه اتعلق بجد" />
-                                    <ChatBubble sender="her" time="10:32 PM" text="ايش به" />
-                                    <ChatBubble sender="her" time="10:32 PM" text="الان بكلمك بجد لانوه الموضوع اختبص معي" />
-                                    <ChatBubble sender="her" time="10:32 PM" text="معك" />
-                                    <ChatBubble sender="me" time="10:30 PM" text="تعي تعي لهون" />
-                                    <ChatBubble sender="me" time="10:30 PM" text="ي عايشه" />
+                                            </span>
+                                        } />
+                                        <ChatBubble sender="her" time="11:55 PM" text="يعني يعني مثلاً مثلاً نصير من اصحاب الى احباب👈🏻👉🏻💗" />
+                                        <div className="text-center text-[10px] text-gray-500 my-4">بداية الحب</div>
+                                        <ChatBubble sender="her" time="11:55 PM" text="تحبني😔✨!" />
+                                        <ChatBubble sender="me" time="11:55 PM" text="ايوه، وانتي" />
+                                        <ChatBubble sender="her" time="11:55 PM" text="اموتن عليك." />
+                                        <ChatBubble sender="me" time="11:55 PM" text="حبيبتي 🫣" />
+                                        <ChatBubble sender="her" time="11:55 PM" text="حبيبي🥺؟!" />
                                 </div>
 
                                 <div className="p-3 bg-black/40 flex items-center gap-3">
@@ -483,15 +526,15 @@
                                 
                                 <h2 className="text-xl font-bold text-white mb-2">لحظة الاعتراف</h2>
                                 <p className="text-gray-400 text-xs leading-relaxed mb-6">
-كل ما سمعت صوتش العذب، حسيت إن الحياة لسى بخير، وضحكتش هي الشيء الوحيد اللي ينسيني أي تعب.أمانة إنش سحرتيني وشليتي عقلي. أنا فدالك وفدى صوتش اللي يرد الروح، وفدى ضحكتش اللي تجلي الهم وتخليني أبسِر الدنيا وردي. أنتي ساحرة بكل ما فيش.. بوجهش اللي يطير النوم، وعيونش اللي تخدر حسي وعقلي يغرق فيهن وبجسمش اللي يشبة الغصن يميل ويميّل قلبي معه، وبكل تفصيل يخصش. أحبش وأعشق كل ذرة فيش.
+كل ما سمعت صوتش العذب، حسيت إن الحياة لسى بخير، وضحكتش هي الشيء الوحيد اللي ينسيني أي تعب.أمانة إنش سحرتيني وشليتي عقلي. أنا فدالك وفدى صوتش اللي يرد الروح، وفدى ضحكتش اللي تنسيني الهم وتخليني أبسِر الدنيا وردي. أنتي ساحرة بكل ما فيش.. بوجهش وشاماتش مستحيل اقنع من شوفتهن، وعيونش اللي تخدر حسي وعقلي يغرق فيهن وبجسمش اللي يشبة الغصن يميل ويميّل قلبي معه، وبكل تفصيل يخصش. أحبش وأعشق كل ذرة فيش.
                                 </p>
 
                                 <div className="flex justify-center gap-3">
                                     <div className="px-4 py-2 bg-pink-500/20 border border-pink-500/50 rounded-xl text-xs text-pink-200 font-bold">
-                                        أحبك يا بطلي 🧔🏻
+                                        أحبك يا بطلي 🧕🏻
                                     </div>
                                     <div className="px-4 py-2 bg-purple-500/20 border border-purple-500/50 rounded-xl text-xs text-purple-200 font-bold">
-                                        أحبك يا بطلتي 🧕🏻
+                                        أحبك يا بطلتي 🧔🏻
                                     </div>
                                 </div>
                             </div>
@@ -518,7 +561,7 @@
                                     <div className="flex-1 px-4 text-center z-10">
                                         <div className="border-t-2 border-dashed border-gray-500/50 relative h-0">
                                             <motion.div 
-                                                animate={{ x: [-20, 20, -20] }}
+                                                animate={{ x: [-40, 20, -40] }}
                                                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                                                 className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gray-900 rounded-full p-1"
                                             >
@@ -543,7 +586,7 @@
                             >
                                 ❤️
                             </motion.div>
-                            <p className="text-sm font-light text-gray-400">صُنع بكل حب لـ عائشة</p>
+                            <p className="text-sm font-light text-gray-400">كل عام وبطلتي في خير وسعادة</p>
                         </div>
 
                     </div>
