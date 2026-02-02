@@ -345,6 +345,18 @@
                 }, 250);
             };
             const bypassTimer = () => handleUnlock();
+            
+            if (!isUnlocked) {
+                return (
+                    <div className="relative w-full h-full overflow-hidden">
+                        <Background />
+                        <AnimatePresence>
+                            <Countdown targetDate={targetDate} onComplete={handleUnlock} />
+                        </AnimatePresence>
+                    </div>
+                );
+            }
+
             return (
                 <div className="relative min-h-screen pb-24 ">
                     <Background />
@@ -596,5 +608,6 @@
     </script>
 </body>
 </html>
+
 
 
